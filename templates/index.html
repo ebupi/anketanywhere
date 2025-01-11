@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ebubekir Atsız">  <!-- Meta veri olarak geliştirici adı -->
+    <title>Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="best-score">En Yüksek Puan: <span id="best-score">{{ best_score }}%</span></div>
+        <h1>Quiz</h1>
+        <form id="quiz-form" method="POST">
+            <label for="name">Soru 1: Adınız nedir?</label>
+            <input type="text" id="name" name="name" required>
+
+            <label>Soru 2: Favori renginiz nedir?</label>
+            <label><input type="radio" name="color" value="Red" required> Kırmızı</label>
+            <label><input type="radio" name="color" value="Blue"> Mavi</label>
+            <label><input type="radio" name="color" value="Green"> Yeşil</label>
+
+            <label>Soru 3: Favori hayvanınız nedir?</label>
+            <label><input type="radio" name="animal" value="Dog" required> Köpek</label>
+            <label><input type="radio" name="animal" value="Cat"> Kedi</label>
+            <label><input type="radio" name="animal" value="Parrot"> Papağan</label>
+
+            <label for="hobbies">Soru 4: Hobilerinizi veya ilgi alanlarınızı açıklayın:</label>
+            <textarea id="hobbies" name="hobbies" rows="4" required></textarea>
+
+            <input type="submit" value="Gönder">
+        </form>
+    </div>
+    <div class="footer">Geliştirici: Ebubekir Atsız</div>
+
+    <script>
+        // Puanı göster
+        const score = {{ score | default(0) }};
+        if (score > 0) {
+            alert(`Puanınız: ${score}%`);
+        }
+    </script>
+</body>
+</html>
