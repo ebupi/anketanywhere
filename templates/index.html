@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Ebubekir Atsız">  <!-- Meta veri olarak geliştirici adı -->
+    <meta name="author" content="Ebubekir Atsız">
     <title>Quiz</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -12,21 +12,65 @@
         <div class="best-score">En Yüksek Puan: <span id="best-score">{{ best_score }}%</span></div>
         <h1>Quiz</h1>
         <form id="quiz-form" method="POST">
-            <label for="name">Soru 1: Adınız nedir?</label>
-            <input type="text" id="name" name="name" required>
+            <!-- İsim ve Soyisim -->
+            <label for="name">İsim Soyisim:</label>
+            <input type="text" id="name" name="name" placeholder="Adınızı ve soyadınızı girin" required>
 
-            <label>Soru 2: Favori renginiz nedir?</label>
-            <label><input type="radio" name="color" value="Red" required> Kırmızı</label>
-            <label><input type="radio" name="color" value="Blue"> Mavi</label>
-            <label><input type="radio" name="color" value="Green"> Yeşil</label>
+            <h2>Python'da AI Geliştirme</h2>
+            <label>Soru 1: Python'da AI geliştirmek için en popüler kütüphanelerden biri nedir?</label>
+            <label><input type="radio" name="ai_lib" value="TensorFlow" required> TensorFlow</label>
+            <label><input type="radio" name="ai_lib" value="NumPy"> NumPy</label>
+            <label><input type="radio" name="ai_lib" value="SciPy"> SciPy</label>
+            <label><input type="radio" name="ai_lib" value="Matplotlib"> Matplotlib</label>
 
-            <label>Soru 3: Favori hayvanınız nedir?</label>
-            <label><input type="radio" name="animal" value="Dog" required> Köpek</label>
-            <label><input type="radio" name="animal" value="Cat"> Kedi</label>
-            <label><input type="radio" name="animal" value="Parrot"> Papağan</label>
+            <label>Soru 2: Makine öğrenimi modellerini eğitmek için Python’da hangi kütüphane kullanılır?</label>
+            <label><input type="radio" name="ml_lib" value="Scikit-Learn" required> Scikit-Learn</label>
+            <label><input type="radio" name="ml_lib" value="Pandas"> Pandas</label>
+            <label><input type="radio" name="ml_lib" value="BeautifulSoup"> BeautifulSoup</label>
+            <label><input type="radio" name="ml_lib" value="Requests"> Requests</label>
 
-            <label for="hobbies">Soru 4: Hobilerinizi veya ilgi alanlarınızı açıklayın:</label>
-            <textarea id="hobbies" name="hobbies" rows="4" required></textarea>
+            <h2>Bilgisayar Görüşü</h2>
+            <label>Soru 3: Bilgisayar görüşü alanında objektif tanıma için yaygın olarak kullanılan algoritma nedir?</label>
+            <label><input type="radio" name="cv_algo" value="ResNet" required> ResNet</label>
+            <label><input type="radio" name="cv_algo" value="K-Nearest Neighbors"> K-Nearest Neighbors</label>
+            <label><input type="radio" name="cv_algo" value="SVM"> SVM</label>
+            <label><input type="radio" name="cv_algo" value="Decision Trees"> Decision Trees</label>
+
+            <label>Soru 4: Görüntü veri kümesini işlemek için hangi Python kütüphanesi yaygın olarak kullanılır?</label>
+            <label><input type="radio" name="cv_lib" value="OpenCV" required> OpenCV</label>
+            <label><input type="radio" name="cv_lib" value="PIL"> PIL</label>
+            <label><input type="radio" name="cv_lib" value="CV2"> CV2</label>
+            <label><input type="radio" name="cv_lib" value="Matplotlib"> Matplotlib</label>
+
+            <h2>NLP (Nöro-Dilbilim)</h2>
+            <label>Soru 5: Doğal dil işleme alanında en çok kullanılan derin öğrenme modeli hangisidir?</label>
+            <label><input type="radio" name="nlp_model" value="BERT" required> BERT</label>
+            <label><input type="radio" name="nlp_model" value="CNN"> CNN</label>
+            <label><input type="radio" name="nlp_model" value="RNN"> RNN</label>
+            <label><input type="radio" name="nlp_model" value="KNN"> KNN</label>
+
+            <label>Soru 6: Hangi Python kütüphanesi doğal dil işleme için güçlü araçlar sağlar?</label>
+            <label><input type="radio" name="nlp_lib" value="NLTK" required> NLTK</label>
+            <label><input type="radio" name="nlp_lib" value="BeautifulSoup"> BeautifulSoup</label>
+            <label><input type="radio" name="nlp_lib" value="SciPy"> SciPy</label>
+            <label><input type="radio" name="nlp_lib" value="Requests"> Requests</label>
+
+            <h2>Python Uygulamalarında AI Modelleri Uygulama</h2>
+            <label>Soru 7: Python'da AI modellerini uygulamak için hangi framework tercih edilir?</label>
+            <label><input type="radio" name="framework" value="Hepsi" required> Hepsi</label>
+            <label><input type="radio" name="framework" value="Flask"> Flask</label>
+            <label><input type="radio" name="framework" value="FastAPI"> FastAPI</label>
+            <label><input type="radio" name="framework" value="Django"> Django</label>
+
+            <label>Soru 8: Bir AI modelini web uygulamasında yaymak için hangi Flask kütüphanesi kullanılır?</label>
+            <label><input type="radio" name="flask_lib" value="Flask-RESTful" required> Flask-RESTful</label>
+            <label><input type="radio" name="flask_lib" value="Flask-SQLAlchemy"> Flask-SQLAlchemy</label>
+            <label><input type="radio" name="flask_lib" value="Flask-WTF"> Flask-WTF</label>
+            <label><input type="radio" name="flask_lib" value="Flask-Bootstrap"> Flask-Bootstrap</label>
+
+            <!-- Hobiler -->
+            <label for="hobbies">Hobileriniz nelerdir?</label>
+            <textarea id="hobbies" name="hobbies" placeholder="Hobilerinizi yazın" required></textarea>
 
             <input type="submit" value="Gönder">
         </form>
