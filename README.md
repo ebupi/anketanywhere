@@ -44,7 +44,7 @@ quiz-app/
 │   └── index.html          # Quiz formunun HTML şablonu
 ├── static/                 # Statik dosyaların bulunduğu klasör
 │   └── style.css           # Stil dosyası
-└── requirements.txt        # Bağımlılıkların listesi (isteğe bağlı)b                 # SQLite veritabanı (otomatik oluşturulur)
+└── requirements.txt        # Bağımlılıkların listesi
 ```
 
 ## Katkıda Bulunma
